@@ -1,7 +1,7 @@
 {
   "name": "@ykey/stream",
-  "description": "Promise like utilities",
-  "version": "0.0.0",
+  "description": "Promise and Reactive like utilities",
+  "version": "0.0.1",
   "author": {
     "name": "ykeyjp",
     "email": "ykey.jp@gmail.com",
@@ -12,8 +12,7 @@
       "test/**/*.test.js"
     ],
     "source": [
-      "**/*.js",
-      "!test/**/*.js"
+      "**/*.js"
     ],
     "powerAssert": false
   },
@@ -31,8 +30,8 @@
   },
   "homepage": "https://github.com/ykeyjp/stream.js",
   "keywords": [
-    "utilities",
-    "promise"
+    "promise",
+    "utilities"
   ],
   "license": "MIT",
   "main": "index.js",

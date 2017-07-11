@@ -1,6 +1,6 @@
 # @ykey/stream
 
-utilities.
+Promise and Reactive like utilities.
 
 ## Requirement
 
