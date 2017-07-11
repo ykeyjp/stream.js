@@ -1,0 +1,90 @@
+{
+  "name": "@ykey/stream",
+  "description": "Promise like utilities",
+  "version": "0.0.0",
+  "author": {
+    "name": "ykeyjp",
+    "email": "ykey.jp@gmail.com",
+    "url": "https://github.com/ykeyjp"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.test.js"
+    ],
+    "source": [
+      "**/*.js",
+      "!test/**/*.js"
+    ],
+    "powerAssert": false
+  },
+  "bugs": "https://github.com/ykeyjp/stream.js/issues",
+  "devDependencies": {
+    "@types/node": "^8.0.5",
+    "ava": "^0.20.0",
+    "npm-run-all": "^4.0.2",
+    "nyc": "^11.0.3",
+    "prettier": "^1.5.2",
+    "xo": "^0.18.2"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "homepage": "https://github.com/ykeyjp/stream.js",
+  "keywords": [
+    "utilities",
+    "promise"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ykeyjp/stream.js.git"
+  },
+  "scripts": {
+    "cover": "nyc ava",
+    "cover:report": "nyc report --reporter=html",
+    "format": "prettier --write --single-quote --semi=true --trailing-comma es5 --no-bracket-spacing **/*.js",
+    "lint": "xo **/*.js",
+    "report": "run-s cover cover:report",
+    "test": "ava"
+  },
+  "xo": {
+    "space": true,
+    "envs": [
+      "node",
+      "es6"
+    ],
+    "rules": {
+      "quotes": [
+        "error",
+        "single",
+        {
+          "avoidEscape": true
+        }
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "no-new-func": [
+        "off"
+      ],
+      "space-before-function-paren": [
+        2,
+        "never"
+      ],
+      "operator-linebreak": [
+        "error",
+        "after",
+        {
+          "overrides": {
+            "-=": "before",
+            "+=": "before",
+            "?": "before",
+            ":": "before"
+          }
+        }
+      ]
+    }
+  }
+}
