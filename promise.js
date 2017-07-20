@@ -146,7 +146,7 @@ function reject(reason) {
   if (reason instanceof Error) {
     p.result = reason;
   } else {
-    p.result = new Error(String.prototype.toString.call(reason));
+    p.result = new Error(String.prototype.toString.call(reason || ''));
   }
   return p;
 }
@@ -195,7 +195,12 @@ function all(arr) {
     let count = 0;
     const check = () => {
       if (count === total) {
-        p.result = result;
+        const errs = result.filter(e => e instanceof Error);
+        if (errs.length > 0) {
+          p.result = errs[0];
+        } else {
+          p.result = result;
+        }
         next.call(p);
       }
     };
@@ -205,11 +210,17 @@ function all(arr) {
           result[i] = pc.result;
           ++count;
         } else {
-          pc.then(data => {
-            result[i] = data;
-            ++count;
-            check();
-          });
+          pc
+            .then(data => {
+              result[i] = data;
+              ++count;
+              check();
+            })
+            .catch(err => {
+              result[i] = err;
+              ++count;
+              check();
+            });
         }
       } else {
         result[i] = pc;

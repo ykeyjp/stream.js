@@ -231,3 +231,14 @@ test('all', async t => {
     t.deepEqual(data, []);
   });
 });
+
+test('all - error', async t => {
+  await promise
+    .all([promise.reject()])
+    .then(() => {
+      t.fail();
+    })
+    .catch(() => {
+      t.pass();
+    });
+});
